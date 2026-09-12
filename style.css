@@ -1,0 +1,1602 @@
+/* ==========================================================================
+   BÁNH XÈO TÔM NHẢY BA THI - ĐẶC SẢN BÌNH ĐỊNH
+   Design System & Main Stylesheet (style.css)
+   Clean, Semantic, Mobile-First, Ready for WordPress / Elementor / Gutenberg
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS VARIABLES & THEME TOKENS
+   -------------------------------------------------------------------------- */
+:root {
+  /* Brand Palette (Bình Định Heritage Culinary Style) */
+  --c-burgundy: #7A1414;        /* Đỏ đô trầm truyền thống */
+  --c-burgundy-dark: #580B0B;   /* Đỏ đô đậm tạo chiều sâu */
+  --c-burgundy-light: #9B2424;  /* Đỏ đô sáng hover */
+  
+  --c-gold: #D89824;            /* Vàng nghệ / vàng ấm bánh xèo */
+  --c-gold-dark: #B57912;       /* Vàng nghệ đậm */
+  --c-gold-light: #F7E5BD;      /* Vàng kem sáng */
+  --c-gold-glow: rgba(216, 152, 36, 0.25);
+
+  --c-cream: #FAF7F0;           /* Trắng ngà / kem ấm dễ chịu */
+  --c-cream-card: #FFFFFF;      /* Nền thẻ nội dung */
+  --c-cream-soft: #F2EDE2;      /* Nền section xen kẽ */
+
+  --c-brown-dark: #2B1E1A;      /* Nâu gỗ đậm / chữ chính */
+  --c-brown-muted: #6B5B56;     /* Nâu nhẹ / mô tả phụ */
+  --c-border: #E8E1D3;          /* Viền nhẹ nhàng, tinh tế */
+
+  --c-green-fresh: #2E7D32;     /* Xanh lá rau sống đặc trưng Bình Định */
+  --c-green-light: #E8F5E9;
+
+  /* Typography */
+  --font-serif: "Playfair Display", "Merriweather", "Times New Roman", serif;
+  --font-sans: "Be Vietnam Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Spacing & Layout */
+  --container-max: 1180px;
+  --header-height: 72px;
+  --topbar-height: 38px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-pill: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(43, 30, 26, 0.06);
+  --shadow-md: 0 6px 18px rgba(43, 30, 26, 0.08);
+  --shadow-lg: 0 12px 30px rgba(43, 30, 26, 0.12);
+  --shadow-gold: 0 4px 16px rgba(216, 152, 36, 0.35);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET & BASE STYLES
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--c-cream);
+  color: var(--c-brown-dark);
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  overflow-x: hidden;
+  /* Chừa khoảng trống bên dưới cho thanh Sticky CTA trên Mobile */
+  padding-bottom: 74px;
+}
+
+@media (min-width: 769px) {
+  body {
+    padding-bottom: 0;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* --------------------------------------------------------------------------
+   3. TYPOGRAPHY & HEADINGS
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--c-burgundy);
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-size: clamp(1.65rem, 3.5vw, 2.4rem);
+  margin-bottom: 0.6rem;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+}
+
+p {
+  color: var(--c-brown-muted);
+  font-size: 1rem;
+}
+
+.text-highlight {
+  color: var(--c-gold-dark);
+}
+
+/* Section Header Structure */
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+  padding: 0 1rem;
+}
+
+.section-tag {
+  display: inline-block;
+  padding: 0.3rem 0.9rem;
+  background-color: var(--c-gold-light);
+  color: var(--c-burgundy-dark);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: var(--radius-pill);
+  margin-bottom: 0.75rem;
+  border: 1px solid rgba(216, 152, 36, 0.35);
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--c-brown-muted);
+  line-height: 1.6;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   4. BUTTONS & CTA ELEMENTS
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  line-height: 1.2;
+  min-height: 46px;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--c-burgundy);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(122, 20, 20, 0.28);
+}
+
+.btn-primary:hover {
+  background-color: var(--c-burgundy-light);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(122, 20, 20, 0.35);
+}
+
+.btn-gold {
+  background-color: var(--c-gold);
+  color: var(--c-brown-dark);
+  box-shadow: var(--shadow-gold);
+}
+
+.btn-gold:hover {
+  background-color: var(--c-gold-dark);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--c-burgundy);
+  border: 2px solid var(--c-burgundy);
+}
+
+.btn-outline:hover {
+  background-color: var(--c-burgundy);
+  color: #FFFFFF;
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  min-height: 38px;
+}
+
+.btn-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Pulse Animation for Hotline */
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 0 0 rgba(122, 20, 20, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(122, 20, 20, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(122, 20, 20, 0); }
+}
+
+.pulse-effect {
+  animation: pulseGlow 2s infinite;
+}
+
+/* --------------------------------------------------------------------------
+   5. TOPBAR & HEADER
+   -------------------------------------------------------------------------- */
+.topbar {
+  background-color: var(--c-burgundy-dark);
+  color: #FFFFFF;
+  font-size: 0.82rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.topbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbar-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.topbar-info span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.topbar-link {
+  color: var(--c-gold-light);
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.topbar-link:hover {
+  color: #FFFFFF;
+}
+
+/* Site Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(250, 247, 240, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--c-border);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+}
+
+/* Brand Logo (Placeholder ready for replacement) */
+.brand-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.brand-logo-mark {
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(135deg, var(--c-burgundy) 0%, var(--c-burgundy-dark) 100%);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-gold);
+  border: 1.5px solid var(--c-gold);
+  box-shadow: var(--shadow-sm);
+  font-family: var(--font-serif);
+  font-weight: 800;
+  line-height: 1.1;
+  text-align: center;
+  padding: 2px;
+}
+
+.brand-logo-mark span.mark-sub {
+  font-size: 0.55rem;
+  letter-spacing: 0.05em;
+  color: #FFF;
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+}
+
+.brand-logo-mark span.mark-main {
+  font-size: 0.95rem;
+  font-weight: 900;
+}
+
+.brand-logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-logo-name {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--c-burgundy);
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.brand-logo-sub {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--c-gold-dark);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Desktop Nav */
+.main-nav {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .main-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+}
+
+.nav-link {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--c-brown-dark);
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--c-burgundy);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--c-burgundy);
+  transition: width var(--transition-fast);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+  width: 100%;
+}
+
+.header-cta-group {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .header-cta-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+}
+
+/* Hamburger Button */
+.menu-toggle-btn {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background-color: var(--c-cream-soft);
+  border: 1px solid var(--c-border);
+  gap: 5px;
+}
+
+@media (min-width: 992px) {
+  .menu-toggle-btn {
+    display: none;
+  }
+}
+
+.menu-toggle-btn span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: var(--c-burgundy);
+  transition: all var(--transition-fast);
+}
+
+.menu-toggle-btn.is-active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle-btn.is-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle-btn.is-active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile Drawer */
+.mobile-drawer {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--c-cream);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  transform: translateX(100%);
+  transition: transform var(--transition-normal);
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+}
+
+.mobile-drawer.is-open {
+  transform: translateX(0);
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.mobile-nav-link {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--c-burgundy);
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid var(--c-border);
+}
+
+.mobile-nav-link:hover {
+  color: var(--c-gold-dark);
+  padding-left: 0.75rem;
+}
+
+.mobile-drawer-contact {
+  margin-top: auto;
+  background-color: var(--c-cream-soft);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--c-border);
+}
+
+/* --------------------------------------------------------------------------
+   6. HERO SECTION
+   -------------------------------------------------------------------------- */
+.hero-section {
+  position: relative;
+  padding: 2.5rem 0 3.5rem;
+  background: linear-gradient(180deg, rgba(242, 237, 226, 0.7) 0%, rgba(250, 247, 240, 1) 100%);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1.15fr 1fr;
+    gap: 3rem;
+  }
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--c-gold-light);
+  color: var(--c-burgundy-dark);
+  border: 1px solid rgba(216, 152, 36, 0.4);
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-weight: 600;
+  color: var(--c-gold-dark);
+  margin-bottom: 1.25rem;
+  line-height: 1.45;
+}
+
+.hero-desc {
+  font-size: 1.05rem;
+  color: var(--c-brown-muted);
+  margin-bottom: 1.75rem;
+  max-width: 540px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.hero-actions .btn {
+  flex: 1 1 200px;
+}
+
+@media (min-width: 576px) {
+  .hero-actions .btn {
+    flex: 0 0 auto;
+  }
+}
+
+/* Trust Bar */
+.trust-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1.25rem;
+  background-color: var(--c-cream-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--c-border);
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+}
+
+.trust-number {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--c-burgundy);
+  line-height: 1;
+}
+
+.trust-text {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--c-brown-dark);
+  line-height: 1.35;
+}
+
+/* Hero Media Box */
+.hero-media-wrapper {
+  position: relative;
+}
+
+.hero-image-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 4px solid #FFFFFF;
+  aspect-ratio: 4 / 3;
+  background-color: var(--c-cream-soft);
+}
+
+.hero-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.hero-image-frame:hover img {
+  transform: scale(1.03);
+}
+
+.hero-tag-floating {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background-color: rgba(43, 30, 26, 0.88);
+  backdrop-filter: blur(4px);
+  color: var(--c-gold-light);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: 1px solid rgba(216, 152, 36, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   7. SECTION CÂU CHUYỆN (STORY)
+   -------------------------------------------------------------------------- */
+.story-section {
+  padding: 4.5rem 0;
+  background-color: #FFFFFF;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .story-grid {
+    grid-template-columns: 1fr 1.15fr;
+    gap: 3.5rem;
+  }
+}
+
+.story-quote-card {
+  background: linear-gradient(135deg, var(--c-burgundy-dark) 0%, var(--c-burgundy) 100%);
+  color: #FFFFFF;
+  padding: 2.5rem 2rem;
+  border-radius: var(--radius-lg);
+  position: relative;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(216, 152, 36, 0.3);
+}
+
+.story-quote-card::before {
+  content: "“";
+  font-family: var(--font-serif);
+  font-size: 6rem;
+  line-height: 1;
+  position: absolute;
+  top: 10px;
+  left: 18px;
+  color: rgba(216, 152, 36, 0.2);
+}
+
+.story-quote-text {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--c-gold-light);
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.story-quote-author {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.story-content h2 {
+  margin-bottom: 1.25rem;
+}
+
+.story-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--c-brown-muted);
+  margin-bottom: 1.5rem;
+}
+
+.story-subbox {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: var(--c-cream);
+  border-left: 4px solid var(--c-gold);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.story-subbox h3 {
+  color: var(--c-burgundy);
+  margin-bottom: 0.6rem;
+}
+
+/* --------------------------------------------------------------------------
+   8. SECTION "ĐIỀU LÀM NÊN BA THI" (4 CARDS)
+   -------------------------------------------------------------------------- */
+.features-section {
+  padding: 4.5rem 0;
+  background-color: var(--c-cream-soft);
+  border-top: 1px solid var(--c-border);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .features-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.feature-card {
+  background-color: #FFFFFF;
+  padding: 2rem 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--c-border);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--c-gold);
+}
+
+.feature-num {
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--c-gold);
+  line-height: 1;
+  margin-bottom: 0.75rem;
+  opacity: 0.9;
+}
+
+.feature-title {
+  font-size: 1.15rem;
+  color: var(--c-burgundy);
+  margin-bottom: 0.85rem;
+  letter-spacing: 0.02em;
+}
+
+.feature-desc {
+  font-size: 0.92rem;
+  color: var(--c-brown-muted);
+  line-height: 1.7;
+}
+
+/* --------------------------------------------------------------------------
+   9. SECTION MENU NỔI BẬT & THỰC ĐƠN ĐẶC SẢN
+   -------------------------------------------------------------------------- */
+.menu-section {
+  padding: 4.5rem 0;
+  background-color: #FFFFFF;
+}
+
+/* Category Filter Tabs */
+.menu-tabs {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.75rem;
+  margin-bottom: 2rem;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+.menu-tab-btn {
+  padding: 0.65rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  background-color: var(--c-cream-soft);
+  color: var(--c-brown-dark);
+  border: 1px solid var(--c-border);
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.menu-tab-btn:hover, .menu-tab-btn.is-active {
+  background-color: var(--c-burgundy);
+  color: #FFFFFF;
+  border-color: var(--c-burgundy);
+}
+
+/* Menu Grid */
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 576px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .menu-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .menu-grid.menu-grid-4col {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Food Card */
+.food-card {
+  background-color: var(--c-cream-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--c-border);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+}
+
+.food-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(216, 152, 36, 0.5);
+}
+
+.food-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: var(--c-cream-soft);
+}
+
+.food-card-media img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.food-card:hover .food-card-media img {
+  transform: scale(1.05);
+}
+
+.food-card-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: var(--c-burgundy);
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.food-card-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.food-card-title {
+  font-size: 1.1rem;
+  color: var(--c-brown-dark);
+  font-family: var(--font-serif);
+  margin-bottom: 0.4rem;
+  line-height: 1.3;
+}
+
+.food-card-price {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--c-burgundy);
+  margin-bottom: 0.5rem;
+}
+
+.food-card-desc {
+  font-size: 0.88rem;
+  color: var(--c-brown-muted);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.food-card-footer {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--c-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.food-card-call-link {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--c-burgundy);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.food-card-call-link:hover {
+  color: var(--c-gold-dark);
+}
+
+/* Special Note Alert in Menu */
+.menu-notice-box {
+  background-color: var(--c-gold-light);
+  border: 1px solid rgba(216, 152, 36, 0.4);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--c-burgundy-dark);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   10. SECTION CHI NHÁNH & LIÊN HỆ
+   -------------------------------------------------------------------------- */
+.locations-section {
+  padding: 4.5rem 0;
+  background-color: var(--c-cream);
+  border-top: 1px solid var(--c-border);
+}
+
+.branches-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .branches-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.branch-card {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--c-border);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-fast);
+}
+
+.branch-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--c-burgundy);
+}
+
+.branch-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--c-border);
+  padding-bottom: 1rem;
+}
+
+.branch-name {
+  font-size: 1.35rem;
+  color: var(--c-burgundy);
+}
+
+.branch-badge {
+  background-color: var(--c-green-light);
+  color: var(--c-green-fresh);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+}
+
+.branch-info-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.branch-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.branch-info-item svg {
+  width: 20px;
+  height: 20px;
+  color: var(--c-burgundy);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.branch-hotlines {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.hotline-chip {
+  display: inline-block;
+  font-weight: 700;
+  color: var(--c-burgundy);
+  background-color: var(--c-cream-soft);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--c-border);
+}
+
+.hotline-chip:hover {
+  background-color: var(--c-burgundy);
+  color: #FFFFFF;
+}
+
+.branch-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+/* Working Hours & Feedback Bar */
+.info-subrow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .info-subrow {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.info-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.info-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  background-color: var(--c-gold-light);
+  color: var(--c-burgundy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.info-card-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.info-card-text h4 {
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.info-card-text p {
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   11. SECTION DỊCH VỤ GIAO HÀNG & ĐẶT TIỆC DOANH NGHIỆP
+   -------------------------------------------------------------------------- */
+.catering-section {
+  padding: 4.5rem 0;
+  background: linear-gradient(135deg, var(--c-burgundy-dark) 0%, var(--c-burgundy) 100%);
+  color: #FFFFFF;
+}
+
+.catering-section h2, .catering-section h3 {
+  color: var(--c-gold-light);
+}
+
+.catering-card {
+  background-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(216, 152, 36, 0.3);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+}
+
+.catering-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .catering-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.catering-item {
+  background-color: rgba(0, 0, 0, 0.15);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--c-gold);
+}
+
+.catering-item h4 {
+  color: var(--c-gold);
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+
+.catering-item p {
+  color: #E2DDD5;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.catering-actions {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   12. SECTION KÊNH TRỰC TUYẾN
+   -------------------------------------------------------------------------- */
+.social-channels-section {
+  padding: 3rem 0;
+  background-color: var(--c-cream-soft);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.channels-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.channel-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 1px solid var(--c-border);
+  background-color: #FFFFFF;
+  color: var(--c-brown-dark);
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.channel-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.channel-facebook:hover {
+  background-color: #1877F2;
+  color: #FFFFFF;
+  border-color: #1877F2;
+}
+
+.channel-tiktok:hover {
+  background-color: #000000;
+  color: #FFFFFF;
+  border-color: #000000;
+}
+
+.channel-email:hover {
+  background-color: var(--c-burgundy);
+  color: #FFFFFF;
+  border-color: var(--c-burgundy);
+}
+
+/* --------------------------------------------------------------------------
+   13. SECTION BÁO CHÍ & KOLS NÓI VỀ BA THI
+   -------------------------------------------------------------------------- */
+.media-section {
+  padding: 4.5rem 0;
+  background-color: #FFFFFF;
+}
+
+.media-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  .media-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.media-card {
+  background-color: var(--c-cream-card);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+}
+
+.media-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--c-gold);
+}
+
+.media-card-thumbnail {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: var(--c-cream-soft);
+  overflow: hidden;
+}
+
+.media-card-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: rgba(43, 30, 26, 0.85);
+  color: var(--c-gold-light);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+}
+
+.media-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.media-card-title {
+  font-size: 1.15rem;
+  color: var(--c-burgundy);
+  margin-bottom: 0.5rem;
+  line-height: 1.35;
+}
+
+.media-card-desc {
+  font-size: 0.9rem;
+  color: var(--c-brown-muted);
+  margin-bottom: 1.25rem;
+}
+
+.media-card-link {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--c-burgundy);
+}
+
+.media-card-link:hover {
+  color: var(--c-gold-dark);
+}
+
+/* --------------------------------------------------------------------------
+   14. FOOTER
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background-color: var(--c-brown-dark);
+  color: #E6E0D5;
+  padding: 4rem 0 2rem;
+  border-top: 4px solid var(--c-burgundy);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1.5fr 1fr 1.2fr;
+    gap: 3rem;
+  }
+}
+
+.footer-brand h3 {
+  color: var(--c-gold-light);
+  margin-bottom: 0.75rem;
+}
+
+.footer-slogan {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--c-gold);
+  margin-bottom: 1rem;
+}
+
+.footer-desc {
+  font-size: 0.9rem;
+  color: #BDB0A4;
+  line-height: 1.7;
+}
+
+.footer-col-title {
+  font-size: 1.05rem;
+  color: var(--c-gold-light);
+  margin-bottom: 1.25rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-col-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 32px;
+  height: 2px;
+  background-color: var(--c-gold);
+}
+
+.footer-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footer-nav-link {
+  color: #BDB0A4;
+  font-size: 0.92rem;
+  transition: color var(--transition-fast);
+}
+
+.footer-nav-link:hover {
+  color: #FFFFFF;
+  padding-left: 4px;
+}
+
+.footer-contact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: #BDB0A4;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+.footer-contact-item svg {
+  width: 18px;
+  height: 18px;
+  color: var(--c-gold);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.footer-bottom {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  font-size: 0.82rem;
+  color: #8C8075;
+}
+
+/* --------------------------------------------------------------------------
+   15. BOTTOM STICKY CTA BAR (MOBILE ONLY)
+   Crucial requirement: High conversion, does not obscure content
+   -------------------------------------------------------------------------- */
+.mobile-sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1050;
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--c-border);
+  box-shadow: 0 -4px 16px rgba(43, 30, 26, 0.12);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 62px;
+  padding: 6px 8px;
+  gap: 6px;
+}
+
+@media (min-width: 769px) {
+  .mobile-sticky-cta {
+    display: none;
+  }
+}
+
+.sticky-cta-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  text-align: center;
+  gap: 2px;
+  transition: all var(--transition-fast);
+  color: #FFFFFF;
+}
+
+.sticky-cta-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.sticky-call {
+  background-color: var(--c-burgundy);
+}
+
+.sticky-call:active {
+  background-color: var(--c-burgundy-dark);
+}
+
+.sticky-zalo {
+  background-color: #0068FF;
+}
+
+.sticky-zalo:active {
+  background-color: #0052CC;
+}
+
+.sticky-facebook {
+  background-color: #1877F2;
+}
+
+.sticky-facebook:active {
+  background-color: #1256B0;
+}
+
+/* --------------------------------------------------------------------------
+   16. ACCESSIBILITY & UTILITIES
+   -------------------------------------------------------------------------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Notification Toast for user clicks (Zalo placeholder / Copy info) */
+.site-toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(30px);
+  background-color: rgba(43, 30, 26, 0.94);
+  color: #FAF7F0;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--c-gold);
+  z-index: 1200;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  text-align: center;
+  max-width: 90%;
+}
+
+.site-toast.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}

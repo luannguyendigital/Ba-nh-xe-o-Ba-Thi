@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <script>
+    /* Polyfill/compatibility fix for environments where window.fetch has only a getter */
+    (function () {
+      try {
+        var _fetch = window.fetch;
+        var descriptor = {
+          get: function () {
+            return _fetch;
+          },
+          set: function (fn) {
+            _fetch = fn;
+          },
+          configurable: true,
+          enumerable: true,
+        };
+        try {
+          Object.defineProperty(window, 'fetch', descriptor);
+        } catch (e) {}
+        try {
+          if (typeof Window !== 'undefined' && Window.prototype) {
+            Object.defineProperty(Window.prototype, 'fetch', descriptor);
+          }
+        } catch (e) {}
+      } catch (err) {}
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Bánh Xèo Tôm Nhảy Ba Thi – Đặc Sản Bình Định</title>
+  <meta name="description" content="Thương hiệu Bánh Xèo Tôm Nhảy Ba Thi - Đặc sản Bình Định giòn xốp, nóng hổi, đậm vị quê nhà. 12 năm phục vụ thực khách tại TP.HCM & Dĩ An. Gọi đặt món: 0984.47.57.67." />
+  <meta name="keywords" content="Bánh xèo tôm nhảy Ba Thi, đặc sản Bình Định, bánh xèo Bình Định, bánh xèo tôm nhảy, bánh xèo Dĩ An, bánh xèo Lê Văn Sỹ" />
+  <meta name="author" content="Bánh Xèo Tôm Nhảy Ba Thi" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / Facebook / Zalo -->
+  <meta property="og:type" content="restaurant" />
+  <meta property="og:title" content="Bánh Xèo Tôm Nhảy Ba Thi – Đặc Sản Bình Định" />
+  <meta property="og:description" content="Giòn xốp, nóng hổi, đậm vị quê nhà. 12 năm mang hương vị Bình Định đến thực khách với tôm Đầm Thị Nại, mực hấp ghe và gạo xay khô Tuy Phước." />
+  <meta property="og:image" content="images/hero-banh-xeo.svg" />
+  <meta property="og:locale" content="vi_VN" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Bánh Xèo Tôm Nhảy Ba Thi – Đặc Sản Bình Định" />
+  <meta name="twitter:description" content="Bánh xèo tôm nhảy giòn rụm đậm vị quê hương Bình Định. Gọi hotline hoặc chat Zalo đặt bàn & giao tận nơi." />
+  <meta name="twitter:image" content="images/hero-banh-xeo.svg" />
+
+  <!-- Google Fonts: Playfair Display (Heading) + Be Vietnam Pro (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet" />
+
+  <!-- Main Stylesheet (Vanilla CSS3) -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Schema.org Structured Data (LocalBusiness / Restaurant) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Bánh Xèo Tôm Nhảy Ba Thi",
+    "image": "images/hero-banh-xeo.svg",
+    "description": "Đặc sản Bình Định – Giòn xốp, nóng hổi, đậm vị quê nhà. 12 năm mang hương vị Bình Định đến thực khách.",
+    "servesCuisine": "Vietnamese, Binh Dinh Specialty",
+    "priceRange": "31.000₫ - 469.000₫",
+    "telephone": "+84984475767",
+    "openingHours": "Mo-Su 09:00-22:00",
+    "department": [
+      {
+        "@type": "Restaurant",
+        "name": "Bánh Xèo Tôm Nhảy Ba Thi - Chi Nhánh 1",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "188 đường GS3, phường Đông Hòa (Gần Big C Dĩ An)",
+          "addressLocality": "Dĩ An",
+          "addressRegion": "TP. Hồ Chí Minh",
+          "addressCountry": "VN"
+        },
+        "telephone": "+84984475767"
+      },
+      {
+        "@type": "Restaurant",
+        "name": "Bánh Xèo Tôm Nhảy Ba Thi - Chi Nhánh 2",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "460 Lê Văn Sỹ, phường Tân Sơn Hòa",
+          "addressLocality": "Quận Tân Bình",
+          "addressRegion": "TP. Hồ Chí Minh",
+          "addressCountry": "VN"
+        },
+        "telephone": "+84989410677"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ========================================================================
+       TOP ANNOUNCEMENT BAR (HOTLINE & GIỜ PHỤC VỤ)
+       ======================================================================== -->
+  <aside class="topbar" id="topbarAnnouncement" aria-label="Thông báo đầu trang">
+    <div class="container">
+      <div class="topbar-info">
+        <span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          Mở cửa: <strong>09:00 – 22:00</strong> tất cả các ngày
+        </span>
+        <span style="display: none;" class="desktop-only-topbar">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          2 Chi nhánh: Dĩ An &amp; 460 Lê Văn Sỹ
+        </span>
+      </div>
+      <div class="topbar-actions">
+        <a href="tel:0984475767" class="topbar-link cta-call" data-branch="TopBar" title="Gọi Hotline Ba Thi">
+          Hotline: <strong>0984.47.57.67</strong>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       SITE HEADER (LOGO, MENU DESKTOP, HAMBURGER MOBILE)
+       ======================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <div class="header-inner">
+        <!-- Logo khu vực placeholder: BÁNH XÈO TÔM NHẢY BA THI -->
+        <!-- BẠN CÓ THỂ THAY LOGO BẰNG THẺ <img src="images/logo.png" alt="Logo Ba Thi"> TẠI ĐÂY -->
+        <a href="#trang-chu" class="brand-logo-wrap" id="brandLogo" title="Bánh Xèo Tôm Nhảy Ba Thi">
+          <div class="brand-logo-mark" aria-hidden="true">
+            <span class="mark-sub">Ba Thi</span>
+            <span class="mark-main">BXTN</span>
+          </div>
+          <div class="brand-logo-text">
+            <span class="brand-logo-name">BÁNH XÈO TÔM NHẢY BA THI</span>
+            <span class="brand-logo-sub">Đặc sản Bình Định</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="main-nav" id="mainNav" aria-label="Menu chính">
+          <a href="#trang-chu" class="nav-link active" id="navHome">Trang chủ</a>
+          <a href="#cau-chuyen" class="nav-link" id="navStory">Câu chuyện</a>
+          <a href="#thuc-don" class="nav-link" id="navMenu">Thực đơn</a>
+          <a href="#chi-nhanh" class="nav-link" id="navLocations">Chi nhánh</a>
+          <a href="#bao-chi-kols" class="nav-link" id="navMedia">Báo chí &amp; KOLs</a>
+        </nav>
+
+        <!-- Header Call Button -->
+        <div class="header-cta-group">
+          <a href="tel:0984475767" class="btn btn-primary btn-sm cta-call pulse-effect" id="headerCallBtn" title="Gọi đặt món ngay">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            GỌI ĐẶT MÓN
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <button class="menu-toggle-btn" id="menuToggleBtn" aria-label="Mở menu chuyển hướng" aria-expanded="false" aria-controls="mobileDrawer">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer / Dropdown -->
+    <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+      <div class="mobile-nav-links">
+        <a href="#trang-chu" class="mobile-nav-link" id="mNavHome">Trang chủ</a>
+        <a href="#cau-chuyen" class="mobile-nav-link" id="mNavStory">Câu chuyện Ba Thi</a>
+        <a href="#dieu-lam-nen-ba-thi" class="mobile-nav-link" id="mNavFeatures">Bí quyết bánh giòn</a>
+        <a href="#thuc-don" class="mobile-nav-link" id="mNavMenu">Thực đơn đặc sản</a>
+        <a href="#chi-nhanh" class="mobile-nav-link" id="mNavLocations">2 Chi nhánh &amp; Bản đồ</a>
+        <a href="#dat-tiec" class="mobile-nav-link" id="mNavCatering">Đặt tiệc &amp; Doanh nghiệp</a>
+        <a href="#bao-chi-kols" class="mobile-nav-link" id="mNavMedia">Báo chí &amp; KOLs</a>
+      </div>
+
+      <div class="mobile-drawer-contact">
+        <p style="font-size: 0.85rem; font-weight: 700; color: var(--c-burgundy); margin-bottom: 0.5rem; text-transform: uppercase;">
+          Liên hệ nhanh với quán:
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <a href="tel:0984475767" class="btn btn-primary cta-call" style="width: 100%;" id="mDrawerCallBtn">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            GỌI HOTLINE: 0984.47.57.67
+          </a>
+          <a href="ZALO_LINK_HERE" class="btn btn-gold cta-zalo" style="width: 100%;" id="mDrawerZaloBtn" data-source="Drawer">
+            CHAT QUA ZALO
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       SECTION VIII: HERO SECTION (LANDING PAGE QUẢNG CÁO META/TIKTOK)
+       ======================================================================== -->
+  <section class="hero-section" id="trang-chu">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge" id="heroBadge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            Đặc sản Bình Định từ 2014
+          </div>
+
+          <h1 class="hero-title" id="heroMainHeading">BÁNH XÈO TÔM NHẢY BA THI</h1>
+          <h2 class="hero-subtitle" id="heroSubHeading">Đặc sản Bình Định – Giòn xốp, nóng hổi, đậm vị quê nhà</h2>
+
+          <p class="hero-desc">
+            Bánh chỉ được đổ khi khách gọi để đảm bảo độ giòn nóng nguyên bản. Bột phối 5 loại gạo xay khô hòa cùng nước cốt dừa thơm béo, tôm Đầm Thị Nại ngọt dai và mực hấp ghe tươi rói.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#thuc-don" class="btn btn-gold" id="heroCtaMenu">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              XEM THỰC ĐƠN
+            </a>
+            <a href="tel:0984475767" class="btn btn-primary cta-call" id="heroCtaCall">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              GỌI ĐẶT MÓN
+            </a>
+          </div>
+
+          <!-- Thông tin ngắn bên dưới hero -->
+          <div class="trust-bar" id="heroTrustBar">
+            <div class="trust-number">12</div>
+            <div class="trust-text">
+              <strong>năm mang hương vị Bình Định đến thực khách</strong>
+              <div style="font-size: 0.8rem; color: var(--c-brown-muted); font-weight: normal; margin-top: 2px;">
+                Đổ bánh tươi từng khuôn &bull; 8 loại rau sống sạch ăn kèm &bull; 2 chi nhánh phục vụ
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Image Frame: Placeholder [HÌNH BÁNH XÈO BA THI] -->
+        <div class="hero-media-wrapper">
+          <div class="hero-image-frame" id="heroImageContainer">
+            <!-- Bạn có thể thay bằng file ảnh thật của bạn: ví dụ images/banh-xeo-hero.jpg -->
+            <img src="images/hero-banh-xeo.svg" alt="Bánh Xèo Tôm Nhảy Ba Thi giòn xốp nóng hổi" width="600" height="450" loading="eager" />
+            <div class="hero-tag-floating">
+              [HÌNH BÁNH XÈO BA THI]
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION IX: CÂU CHUYỆN THƯƠNG HIỆU
+       ======================================================================== -->
+  <section class="story-section" id="cau-chuyen">
+    <div class="container">
+      <div class="story-grid">
+        <!-- Quote Box -->
+        <div class="story-quote-card" id="storyQuoteBox">
+          <blockquote class="story-quote-text">
+            "Có những món ăn được nhớ bằng hương vị. Có những món ăn được nhớ bằng một vùng đất."
+          </blockquote>
+          <div class="story-quote-author">— Bánh Xèo Tôm Nhảy Ba Thi</div>
+        </div>
+
+        <!-- Story Content -->
+        <div class="story-content" id="storyMainContent">
+          <div class="section-tag">Nguồn gốc &amp; Tâm huyết</div>
+          <h2>Một Miền Quê Lớn Trong Chiếc Bánh Nhỏ</h2>
+          <p class="story-text">
+            Anh sinh ra và lớn lên ở thành phố biển Quy Nhơn, Bình Định – miền đất của biển, của tôm mực tươi ngon và món bánh xèo thân thương. Dù gia đình không có truyền thống làm bánh, tình yêu ẩm thực đã thôi thúc anh đi xin học nghề vào năm 28 tuổi, tự mày mò nghiên cứu cùng một người cô tại Quy Nhơn. Anh tìm hiểu tường tận từ hạt gạo, cách làm bột, kỹ thuật đổ bánh cho đến việc lựa chọn từng con tôm, con mực để thấu hiểu trọn vẹn cái hồn của món ăn. Năm 2014, anh quyết định mở quán Bánh Xèo Tôm Nhảy Ba Thi tại Dĩ An, mang ký ức quê hương Bình Định đến vùng đất mới.
+          </p>
+
+          <!-- Sub-section: Vì sao lại là Bánh Xèo Tôm Nhảy? -->
+          <div class="story-subbox" id="storyTomNhayOrigin">
+            <h3>Vì Sao Lại Là "Bánh Xèo Tôm Nhảy"?</h3>
+            <p style="margin: 0; color: var(--c-brown-dark); font-style: italic;">
+              "Bánh xèo Bình Định giống như một cô gái mười tám trăng tròn: bên ngoài giòn xốp, bên trong ngọt ngào. Ngày trước, tôm đánh bắt lên vẫn còn tươi và nhảy lách tách. Từ hình ảnh tự nhiên đó, thực khách gọi món bằng cái tên mộc mạc 'bánh xèo tôm nhảy'."
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION X: "ĐIỀU LÀM NÊN BA THI" (4 CARDS)
+       ======================================================================== -->
+  <section class="features-section" id="dieu-lam-nen-ba-thi">
+    <div class="container">
+      <header class="section-header">
+        <div class="section-tag">Giá trị cốt lõi</div>
+        <h2>Giữ cái hồn truyền thống, làm theo cách của Ba Thi</h2>
+        <p class="section-subtitle">
+          Tỉ mỉ từ nguyên liệu đầu vào, kỹ thuật pha chế đến cái tâm phục vụ thực khách.
+        </p>
+      </header>
+
+      <div class="features-grid">
+        <!-- Card 01: Hạt gạo -->
+        <article class="feature-card" id="feature01Gao">
+          <div class="feature-num" aria-hidden="true">01</div>
+          <h3 class="feature-title">HẠT GẠO</h3>
+          <p class="feature-desc">
+            Thay vì ngâm gạo qua đêm rồi xay tươi, bếp Ba Thi phối 5 loại gạo, đặc biệt dùng gạo thu hoạch vụ Hè Thu tại Tuy Phước (Bình Định) đem xay khô trực tiếp. Bột còn được kết hợp với nước cốt dừa. Điều này tạo ra chiếc bánh thật giòn, xốp, thơm béo nhưng không cứng, không mềm và không hút quá nhiều dầu.
+          </p>
+        </article>
+
+        <!-- Card 02: Tôm đầm Thị Nại -->
+        <article class="feature-card" id="feature02Tom">
+          <div class="feature-num" aria-hidden="true">02</div>
+          <h3 class="feature-title">TÔM ĐẦM THỊ NẠI</h3>
+          <p class="feature-desc">
+            Sử dụng tôm bán thiên nhiên nuôi quảng canh cải tiến, ăn tảo tự nhiên, thịt săn chắc, vỏ mỏng, giữ nguyên vị ngọt và dai nhẹ khi lên khuôn.
+          </p>
+        </article>
+
+        <!-- Card 03: Mực hấp ghe -->
+        <article class="feature-card" id="feature03Muc">
+          <div class="feature-num" aria-hidden="true">03</div>
+          <h3 class="feature-title">MỰC HẤP GHE</h3>
+          <p class="feature-desc">
+            Mang hơi thở của biển, mực được hấp ngay trên ghe để giữ độ tươi cao nhất. Thịt mực dày như miếng cơm dừa, giòn ngọt, được hấp chín trước khi đổ bánh để hạn chế ra nước, giúp vỏ bánh giòn lâu hơn.
+          </p>
+        </article>
+
+        <!-- Card 04: Rau & Nước chấm -->
+        <article class="feature-card" id="feature04Rau">
+          <div class="feature-num" aria-hidden="true">04</div>
+          <h3 class="feature-title">RAU &amp; NƯỚC CHẤM</h3>
+          <p class="feature-desc">
+            Thịt bò tươi sạch ướp gia truyền. Rau sống sạch 100%, kết hợp rau mầm the giòn, xoài chua, dưa leo, tỏi Lý Sơn, ớt xanh và bánh tráng phơi sương, chấm cùng nước mắm chua ngọt đặc trưng. Quán cam kết thực phẩm tươi sạch có kiểm định an toàn.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION XI: MENU NỔI BẬT TRÊN HOMEPAGE
+       ======================================================================== -->
+  <section class="menu-section" id="menu-noi-bat" style="background-color: var(--c-cream);">
+    <div class="container">
+      <header class="section-header">
+        <div class="section-tag">Gợi ý món ăn</div>
+        <h2>Món Nổi Bật Được Yêu Thích Nhất</h2>
+        <p class="section-subtitle">
+          Khám phá những món ăn đặc sản làm nên tên tuổi của Bánh Xèo Tôm Nhảy Ba Thi.
+        </p>
+      </header>
+
+      <div class="menu-grid">
+        <!-- 1. Bánh xèo tôm -->
+        <article class="food-card" id="highlightBanhXeoTom">
+          <div class="food-card-media">
+            <img src="images/banh-xeo-tom.svg" alt="Bánh xèo tôm Ba Thi" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">Bán chạy</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Bánh xèo tôm</h3>
+            <div class="food-card-price">41.000₫</div>
+            <p class="food-card-desc">Tôm đầm Thị Nại tươi ngọt, vỏ bánh giòn rụm màu vàng nghệ, ăn kèm 8 loại rau sống sạch và bánh tráng.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.8rem; color: var(--c-brown-muted);">[ẢNH MÓN DEMO]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                Đặt món
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. Bánh xèo tôm mực -->
+        <article class="food-card" id="highlightBanhXeoTomMuc">
+          <div class="food-card-media">
+            <img src="images/banh-xeo-tom-muc.svg" alt="Bánh xèo tôm mực Ba Thi" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">Đặc sản</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Bánh xèo tôm mực</h3>
+            <div class="food-card-price">51.000₫</div>
+            <p class="food-card-desc">Sự kết hợp hoàn hảo giữa tôm giòn ngọt và mực hấp ghe dày thịt, đậm đà phong vị biển cả Quy Nhơn.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.8rem; color: var(--c-brown-muted);">[ẢNH MÓN DEMO]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                Đặt món
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. Chả mực Ba Thi -->
+        <article class="food-card" id="highlightChaMuc">
+          <div class="food-card-media">
+            <img src="images/cha-muc.svg" alt="Chả mực Ba Thi" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">Món quý</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Chả mực Ba Thi</h3>
+            <div class="food-card-price">149.000₫</div>
+            <p class="food-card-desc">Chả mực giã tay truyền thống, miếng chả dai giòn sần sật, thơm ngậy mùi tiêu thơm nồng.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.8rem; color: var(--c-brown-muted);">[ẢNH MÓN DEMO]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                Đặt món
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. Mẹt nem lụi Ba Thi -->
+        <article class="food-card" id="highlightNemLui">
+          <div class="food-card-media">
+            <img src="images/nem-lui.svg" alt="Mẹt nem lụi Ba Thi" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">Đậm đà</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Mẹt nem lụi Ba Thi</h3>
+            <div class="food-card-price">82.000₫</div>
+            <p class="food-card-desc">Nem nướng thơm lừng trên than hoa, cuộn cùng bánh tráng phơi sương, rau sống và nước chấm đậu phộng béo bùi.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.8rem; color: var(--c-brown-muted);">[ẢNH MÓN DEMO]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                Đặt món
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5. Bánh hỏi heo quay giòn bì -->
+        <article class="food-card" id="highlightBanhHoiHeoQuay">
+          <div class="food-card-media">
+            <img src="images/banh-hoi.svg" alt="Bánh hỏi heo quay giòn bì BaThi" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">Món no</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Bánh hỏi heo quay giòn bì BaThi</h3>
+            <div class="food-card-price">99.000₫</div>
+            <p class="food-card-desc">Bánh hỏi mềm mướt thoa mỡ hành thơm nức, ăn kèm thịt heo quay da giòn rụm vàng óng.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.8rem; color: var(--c-brown-muted);">[ẢNH MÓN DEMO]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                Đặt món
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div style="text-align: center; margin-top: 2.5rem;">
+        <a href="#thuc-don" class="btn btn-primary" id="btnGoToFullMenu">
+          XEM TOÀN BỘ THỰC ĐƠN ĐẶC SẢN
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION XII: TRANG / SECTION THỰC ĐƠN ĐẦY ĐỦ
+       ======================================================================== -->
+  <section class="menu-section" id="thuc-don">
+    <div class="container">
+      <header class="section-header">
+        <div class="section-tag">Thực Đơn Quán</div>
+        <h2>THỰC ĐƠN ĐẶC SẢN</h2>
+        <p class="section-subtitle">
+          Giá đã bao gồm VAT. Phục vụ tại chỗ &amp; mang về. Luôn kèm 8 loại rau sống ăn kèm.
+        </p>
+      </header>
+
+      <!-- Category Filter Tabs -->
+      <nav class="menu-tabs" id="menuTabsNav" aria-label="Bộ lọc thực đơn">
+        <button class="menu-tab-btn is-active" data-category="all">Tất cả món</button>
+        <button class="menu-tab-btn" data-category="1-nhan">Bánh xèo 1 nhân</button>
+        <button class="menu-tab-btn" data-category="2-nhan">Bánh xèo mix 2 nhân</button>
+        <button class="menu-tab-btn" data-category="khai-vi">Món khai vị</button>
+        <button class="menu-tab-btn" data-category="van-phong">Món ăn văn phòng &amp; Ăn no</button>
+        <button class="menu-tab-btn" data-category="an-sang">Món ăn sáng (06:30 - 09:00)</button>
+        <button class="menu-tab-btn" data-category="do-uong">Đồ uống &amp; Khăn</button>
+      </nav>
+
+      <!-- Notice Alert -->
+      <div class="menu-notice-box" id="menuNoticeBox">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+        <div>
+          <strong>Lưu ý giờ phục vụ món:</strong> Món ăn sáng phục vụ từ <strong>06:30 - 09:00</strong>. Giờ mở cửa chung của quán là <strong>09:00 – 22:00</strong> hàng ngày. Tất cả bánh xèo được đổ nóng giòn tại chỗ khi khách gọi.
+        </div>
+      </div>
+
+      <!-- Food Items Grid (All Categories) -->
+      <div class="menu-grid menu-grid-4col" id="allFoodGrid">
+
+        <!-- ===== NHÓM: BÁNH XÈO 1 NHÂN ===== -->
+        <article class="food-card food-card-item" data-category="1-nhan">
+          <div class="food-card-media">
+            <img src="images/banh-xeo-tom.svg" alt="Bánh xèo tôm" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">1 Nhân</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Bánh xèo tôm</h3>
+            <div class="food-card-price">41.000₫</div>
+            <p class="food-card-desc">Tôm đầm Thị Nại ngọt dai, vỏ bánh giòn xốp thơm lừng.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Đặt món</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card food-card-item" data-category="1-nhan">
+          <div class="food-card-media">
+            <img src="images/banh-xeo-bo.svg" alt="Bánh xèo bò" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">1 Nhân</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Bánh xèo bò</h3>
+            <div class="food-card-price">41.000₫</div>
+            <p class="food-card-desc">Thịt bò tươi mềm ướp gia truyền thơm ngọt đậm vị.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Đặt món</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card food-card-item" data-category="1-nhan">
+          <div class="food-card-media">
+            <img src="images/banh-xeo-muc.svg" alt="Bánh xèo mực" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">1 Nhân</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Bánh xèo mực</h3>
+            <div class="food-card-price">41.000₫</div>
+            <p class="food-card-desc">Mực hấp ghe tươi rói, thịt dày giòn ngọt như cơm dừa.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Đặt món</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card food-card-item" data-category="1-nhan">
+          <div class="food-card-media">
+            <img src="images/banh-xeo-tom.svg" alt="Bánh xèo hến" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">1 Nhân</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Bánh xèo hến</h3>
+            <div class="food-card-price">41.000₫</div>
+            <p class="food-card-desc">Hến sông tươi xào thơm béo, món ăn mộc mạc thanh tao.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Đặt món</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card food-card-item" data-category="1-nhan">
+          <div class="food-card-media">
+            <img src="images/banh-xeo-bo.svg" alt="Bánh xèo xá xíu" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">1 Nhân</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Bánh xèo xá xíu</h3>
+            <div class="food-card-price">41.000₫</div>
+            <p class="food-card-desc">Xá xíu đậm vị truyền thống, lớp vỏ bánh vàng giòn ngậy.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Đặt món</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card food-card-item" data-category="1-nhan">
+          <div class="food-card-media">
+            <img src="images/banh-xeo-tom.svg" alt="Bánh xèo xúc xích" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">1 Nhân</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Bánh xèo xúc xích</h3>
+            <div class="food-card-price">41.000₫</div>
+            <p class="food-card-desc">Hương vị thân thuộc, món khoái khẩu của cả gia đình.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Đặt món</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card food-card-item" data-category="1-nhan">
+          <div class="food-card-media">
+            <img src="images/banh-xeo-tom.svg" alt="Bánh xèo truyền thống" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">1 Nhân</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Bánh xèo truyền thống</h3>
+            <div class="food-card-price">31.000₫</div>
+            <p class="food-card-desc">Giữ trọn vị mộc của bột gạo xay khô và giá đỗ the mát.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Đặt món</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card food-card-item" data-category="1-nhan">
+          <div class="food-card-media">
+            <img src="images/banh-xeo-tom.svg" alt="Bánh xèo trứng" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">1 Nhân</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Bánh xèo trứng</h3>
+            <div class="food-card-price">31.000₫</div>
+            <p class="food-card-desc">Lớp trứng vàng béo thơm bọc ngoài vỏ bánh giòn rụm.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Đặt món</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ===== NHÓM: BÁNH XÈO MIX 2 NHÂN ===== -->
+        <article class="food-card food-card-item" data-category="2-nhan">
+          <div class="food-card-media">
+            <img src="images/banh-xeo-tom-muc.svg" alt="Bánh xèo tôm mực" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">Mix 2 Nhân</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Bánh xèo tôm mực</h3>
+            <div class="food-card-price">51.000₫</div>
+            <p class="food-card-desc">Hòa quyện tôm đầm ngọt săn cùng mực hấp ghe giòn ngọt.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Đặt món</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card food-card-item" data-category="2-nhan">
+          <div class="food-card-media">
+            <img src="images/banh-xeo-tom.svg" alt="Bánh xèo tôm trứng" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">Mix 2 Nhân</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Bánh xèo tôm trứng</h3>
+            <div class="food-card-price">51.000₫</div>
+            <p class="food-card-desc">Tôm tươi giòn ngọt kết hợp vị béo ngậy của trứng gà ta.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Đặt món</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card food-card-item" data-category="2-nhan">
+          <div class="food-card-media">
+            <img src="images/banh-xeo-bo.svg" alt="Bánh xèo tôm bò" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">Mix 2 Nhân</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Bánh xèo tôm bò</h3>
+            <div class="food-card-price">51.000₫</div>
+            <p class="food-card-desc">Đậm vị thịt bò ướp hòa cùng vị ngọt thanh của tôm đất.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Đặt món</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card food-card-item" data-category="2-nhan">
+          <div class="food-card-media">
+            <img src="images/banh-xeo-tom.svg" alt="Bánh xèo tôm hến" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">Mix 2 Nhân</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Bánh xèo tôm hến</h3>
+            <div class="food-card-price">51.000₫</div>
+            <p class="food-card-desc">Vị tôm ngọt dai đượm cùng hến sông xào mộc thơm bùi.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Đặt món</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card food-card-item" data-category="2-nhan">
+          <div class="food-card-media">
+            <img src="images/banh-xeo-tom.svg" alt="Bánh xèo xúc xích trứng" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">Mix 2 Nhân</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Bánh xèo xúc xích trứng</h3>
+            <div class="food-card-price">51.000₫</div>
+            <p class="food-card-desc">Lớp vỏ giòn ngậy phủ trứng kết hợp xúc xích thơm mềm.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Đặt món</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card food-card-item" data-category="2-nhan">
+          <div class="food-card-media">
+            <img src="images/banh-xeo-bo.svg" alt="Bánh xèo bò trứng" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">Mix 2 Nhân</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Bánh xèo bò trứng</h3>
+            <div class="food-card-price">51.000₫</div>
+            <p class="food-card-desc">Thịt bò thơm béo quyện cùng trứng tạo nên hương vị cuốn hút.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Đặt món</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ===== NHÓM: MÓN KHAI VỊ ===== -->
+        <article class="food-card food-card-item" data-category="khai-vi">
+          <div class="food-card-media">
+            <img src="images/banh-bot-loc.svg" alt="Bánh bột lọc" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">Khai vị</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Bánh bột lọc</h3>
+            <div class="food-card-price">62.000₫</div>
+            <p class="food-card-desc">Vỏ bánh trong dai, nhân tôm rim thịt đậm đà chuẩn vị miền Trung.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Đặt món</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card food-card-item" data-category="khai-vi">
+          <div class="food-card-media">
+            <img src="images/cha-ram.svg" alt="Chả ram tôm đất" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">Đặc sản</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Chả ram tôm đất</h3>
+            <div class="food-card-price">89.000₫</div>
+            <p class="food-card-desc">Cuốn tôm đất giòn rụm tan trong miệng, ăn kèm rau sống và nước chấm chua ngọt.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Đặt món</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card food-card-item" data-category="khai-vi">
+          <div class="food-card-media">
+            <img src="images/cha-muc.svg" alt="Chả mực Ba Thi" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">Khai vị</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Chả mực Ba Thi</h3>
+            <div class="food-card-price">149.000₫</div>
+            <p class="food-card-desc">Chả mực giã tay công phu, từng thớ thịt mực dai giòn sần sật.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Đặt món</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card food-card-item" data-category="khai-vi">
+          <div class="food-card-media">
+            <img src="images/tre-tron.svg" alt="Tré trộn vị quê" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">Xứ Nẫu</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Tré trộn vị quê</h3>
+            <div class="food-card-price">79.000₫</div>
+            <p class="food-card-desc">Tré rơm Bình Định trộn cùng tỏi, ớt xiêm xanh, dưa leo và rau răm the nồng.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Đặt món</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ===== NHÓM: MÓN ĂN VĂN PHÒNG & ĂN NO ===== -->
+        <article class="food-card food-card-item" data-category="van-phong">
+          <div class="food-card-media">
+            <img src="images/nem-lui.svg" alt="Mẹt nem lụi BaThi" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">Ăn no</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Mẹt nem lụi BaThi</h3>
+            <div class="food-card-price">82.000₫</div>
+            <p class="food-card-desc">Nem nướng than hoa thơm nức mũi, mẹt đầy ắp rau ghém và nước chấm bí truyền.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Đặt món</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card food-card-item" data-category="van-phong">
+          <div class="food-card-media">
+            <img src="images/banh-hoi.svg" alt="Bánh hỏi lòng heo" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">Ăn no</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Bánh hỏi lòng heo</h3>
+            <div class="food-card-price">59.000₫</div>
+            <p class="food-card-desc">Bánh hỏi mềm mịn mướt mỡ hành, dĩa lòng heo tươi luộc giòn sần sật.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Đặt món</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card food-card-item" data-category="van-phong">
+          <div class="food-card-media">
+            <img src="images/banh-hoi.svg" alt="Bánh hỏi heo quay giòn bì BaThi" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">Ăn no</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Bánh hỏi heo quay giòn bì BaThi</h3>
+            <div class="food-card-price">99.000₫</div>
+            <p class="food-card-desc">Thịt heo quay da nổ giòn tan, thịt ngọt mềm chấm mắm tỏi ớt.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Đặt món</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card food-card-item" data-category="van-phong">
+          <div class="food-card-media">
+            <img src="images/bun-gia-cay.svg" alt="Bún giả cầy sáo măng NHỎ" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">Món no</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Bún giả cầy sáo măng NHỎ</h3>
+            <div class="food-card-price">255.000₫</div>
+            <p class="food-card-desc">Đậm đà hương riềng mẻ sáo măng giòn, nồi nhỏ thích hợp cho nhóm 2-3 người.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Đặt món</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card food-card-item" data-category="van-phong">
+          <div class="food-card-media">
+            <img src="images/bun-gia-cay.svg" alt="Bún giả cầy sáo măng LỚN" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">Món no</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Bún giả cầy sáo măng LỚN</h3>
+            <div class="food-card-price">469.000₫</div>
+            <p class="food-card-desc">Nồi lẩu giả cầy sáo măng đầy đặn cho tiệc gia đình, đồng nghiệp đông vui.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Đặt món</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ===== NHÓM: MÓN ĂN SÁNG (06:30 - 09:00) ===== -->
+        <article class="food-card food-card-item" data-category="an-sang">
+          <div class="food-card-media">
+            <img src="images/chao-long.svg" alt="Cháo lòng" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">06:30 - 09:00</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Cháo lòng</h3>
+            <div class="food-card-price">39.000₫</div>
+            <p class="food-card-desc">Tô cháo lòng nóng hổi ngọt thơm nước hầm xương buổi sớm mai.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Đặt món</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card food-card-item" data-category="an-sang">
+          <div class="food-card-media">
+            <img src="images/chao-long.svg" alt="Cháo huyết" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">06:30 - 09:00</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Cháo huyết</h3>
+            <div class="food-card-price">25.000₫</div>
+            <p class="food-card-desc">Cháo gạo rang thơm, huyết mềm mướt rắc tiêu cay ấm lòng.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Đặt món</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card food-card-item" data-category="an-sang">
+          <div class="food-card-media">
+            <img src="images/chao-long.svg" alt="Phần lòng" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">06:30 - 09:00</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Phần lòng</h3>
+            <div class="food-card-price">65.000₫</div>
+            <p class="food-card-desc">Dĩa lòng heo luộc tươi rói đủ vị chấm mắm ớt gừng cay nồng.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Đặt món</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card food-card-item" data-category="an-sang">
+          <div class="food-card-media">
+            <img src="images/banh-hoi.svg" alt="Bánh hỏi lòng heo sáng" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">06:30 - 09:00</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Bánh hỏi lòng heo</h3>
+            <div class="food-card-price">59.000₫</div>
+            <p class="food-card-desc">Món điểm tâm trứ danh của người Bình Định mở đầu ngày mới.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Đặt món</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ===== NHÓM: ĐỒ UỐNG & KHĂN ===== -->
+        <article class="food-card food-card-item" data-category="do-uong">
+          <div class="food-card-media">
+            <img src="images/do-uong.svg" alt="Khăn lạnh" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">Tiện ích</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Khăn lạnh</h3>
+            <div class="food-card-price">3.000₫</div>
+            <p class="food-card-desc">Khăn lạnh sạch sẽ đóng gói tiệt trùng.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Gọi phục vụ</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card food-card-item" data-category="do-uong">
+          <div class="food-card-media">
+            <img src="images/do-uong.svg" alt="Trà đá" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">Đồ uống</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Trà đá</h3>
+            <div class="food-card-price">5.000₫</div>
+            <p class="food-card-desc">Trà đá mát lạnh giải khát sảng khoái.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Gọi phục vụ</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card food-card-item" data-category="do-uong">
+          <div class="food-card-media">
+            <img src="images/do-uong.svg" alt="Nước suối" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">Đồ uống</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Nước suối</h3>
+            <div class="food-card-price">15.000₫</div>
+            <p class="food-card-desc">Nước khoáng tinh khiết đóng chai.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Gọi phục vụ</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card food-card-item" data-category="do-uong">
+          <div class="food-card-media">
+            <img src="images/do-uong.svg" alt="Nước ngọt" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">Đồ uống</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Nước ngọt</h3>
+            <div class="food-card-price">20.000₫</div>
+            <p class="food-card-desc">Các loại nước ngọt có gas ướp lạnh.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Gọi phục vụ</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card food-card-item" data-category="do-uong">
+          <div class="food-card-media">
+            <img src="images/do-uong.svg" alt="Trà tắc" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">Đồ uống</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Trà tắc</h3>
+            <div class="food-card-price">22.000₫</div>
+            <p class="food-card-desc">Trà tắc chua ngọt thanh mát giải nhiệt hoàn hảo.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Gọi phục vụ</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card food-card-item" data-category="do-uong">
+          <div class="food-card-media">
+            <img src="images/do-uong.svg" alt="Sâm râu ngô bí đao" loading="lazy" width="300" height="300" />
+            <span class="food-card-tag">Thanh mát</span>
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Sâm râu ngô bí đao</h3>
+            <div class="food-card-price">22.000₫</div>
+            <p class="food-card-desc">Nước sâm nấu từ bí đao và râu ngô thanh nhiệt, mát lành ngọt dịu.</p>
+            <div class="food-card-footer">
+              <span style="font-size: 0.75rem; color: var(--c-brown-muted);">[THAY ẢNH MÓN THẬT]</span>
+              <a href="tel:0984475767" class="food-card-call-link cta-call">Gọi phục vụ</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION XIV: DỊCH VỤ GIAO HÀNG & ĐẶT TIỆC CHO DOANH NGHIỆP
+       ======================================================================== -->
+  <section class="catering-section" id="dat-tiec">
+    <div class="container">
+      <header class="section-header">
+        <div class="section-tag" style="background-color: rgba(255,255,255,0.15); color: #FFF; border-color: rgba(255,255,255,0.3);">Phục vụ tận tâm</div>
+        <h2>ĐẶT MÓN – ĐẶT TIỆC – ĐẶT BÁNH CHO DOANH NGHIỆP</h2>
+        <p class="section-subtitle" style="color: #F0EAE1;">
+          Đáp ứng nhu cầu liên hoan, bữa ăn trưa văn phòng và sự kiện của các cơ quan, xí nghiệp.
+        </p>
+      </header>
+
+      <div class="catering-card" id="cateringCardBox">
+        <div class="catering-grid">
+          <!-- Item 1: Giao hàng miễn phí -->
+          <div class="catering-item">
+            <h4>Giao hàng miễn phí</h4>
+            <p>Áp dụng tại khu vực Dĩ An trong bán kính 3km khi đặt từ 5 cái trở lên.</p>
+          </div>
+
+          <!-- Item 2: Dành cho Doanh nghiệp -->
+          <div class="catering-item">
+            <h4>Dành cho Doanh nghiệp / Công ty</h4>
+            <p>Quán nhận đặt bánh giao cho các cơ quan, xí nghiệp. Để đảm bảo đúng giờ nghỉ trưa, quý cơ quan vui lòng đặt trước 11h trưa.</p>
+          </div>
+
+          <!-- Item 3: Đảm bảo nóng giòn -->
+          <div class="catering-item">
+            <h4>Đảm bảo giòn nóng nguyên bản</h4>
+            <p>Do đặc trưng không đổ sẵn bánh để đảm bảo độ nóng giòn, quý khách đặt giao bánh, tổ chức tiệc hoặc sự kiện tại quán vui lòng gọi điện trước để được phục vụ tốt nhất.</p>
+          </div>
+        </div>
+
+        <div class="catering-actions">
+          <a href="tel:0984475767" class="btn btn-gold cta-call" id="btnCateringCall">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            GỌI ĐẶT MÓN &amp; ĐẶT TIỆC NGAY
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION XIII: CHI NHÁNH & LIÊN HỆ (TÌM BA THI GẦN BẠN)
+       ======================================================================== -->
+  <section class="locations-section" id="chi-nhanh">
+    <div class="container">
+      <header class="section-header">
+        <div class="section-tag">Địa điểm &amp; Liên hệ</div>
+        <h2>TÌM BA THI GẦN BẠN</h2>
+        <p class="section-subtitle">
+          Chào đón bạn ghé thăm thưởng thức hương vị bánh xèo Bình Định nóng hổi tại 2 chi nhánh.
+        </p>
+      </header>
+
+      <div class="branches-grid">
+        <!-- CHI NHÁNH 1 -->
+        <article class="branch-card" id="branchCard1">
+          <div class="branch-header">
+            <div>
+              <h3 class="branch-name">CHI NHÁNH 1</h3>
+              <div style="font-size: 0.88rem; color: var(--c-gold-dark); font-weight: 600; margin-top: 2px;">Gần Big C Dĩ An</div>
+            </div>
+            <span class="branch-badge">Đang mở cửa</span>
+          </div>
+
+          <ul class="branch-info-list">
+            <li class="branch-info-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <div>
+                <strong>Địa chỉ:</strong> 188 đường GS3, phường Đông Hòa, TP. Hồ Chí Minh
+              </div>
+            </li>
+            <li class="branch-info-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <div>
+                <strong>Hotline:</strong>
+                <div class="branch-hotlines">
+                  <a href="tel:0984475767" class="hotline-chip cta-call" data-branch="Branch_1">0984.47.57.67</a>
+                  <a href="tel:0964019199" class="hotline-chip cta-call" data-branch="Branch_1">0964.019.199</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <div class="branch-actions">
+            <a href="tel:0984475767" class="btn btn-primary btn-sm cta-call" data-branch="Branch_1" id="btnCallBranch1">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              GỌI CHI NHÁNH 1
+            </a>
+            <a href="https://www.google.com/maps/search/?api=1&query=188+duong+GS3+phuong+Dong+Hoa+Di+An" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" id="btnMapBranch1">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+              CHỈ ĐƯỜNG
+            </a>
+          </div>
+        </article>
+
+        <!-- CHI NHÁNH 2 -->
+        <article class="branch-card" id="branchCard2">
+          <div class="branch-header">
+            <div>
+              <h3 class="branch-name">CHI NHÁNH 2</h3>
+              <div style="font-size: 0.88rem; color: var(--c-gold-dark); font-weight: 600; margin-top: 2px;">Tân Bình / Quận 3</div>
+            </div>
+            <span class="branch-badge">Đang mở cửa</span>
+          </div>
+
+          <ul class="branch-info-list">
+            <li class="branch-info-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <div>
+                <strong>Địa chỉ:</strong> 460 Lê Văn Sỹ, phường Tân Sơn Hòa, TP. Hồ Chí Minh
+              </div>
+            </li>
+            <li class="branch-info-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <div>
+                <strong>Hotline:</strong>
+                <div class="branch-hotlines">
+                  <a href="tel:0989410677" class="hotline-chip cta-call" data-branch="Branch_2">0989.410.677</a>
+                  <a href="tel:0975485199" class="hotline-chip cta-call" data-branch="Branch_2">0975.485.199</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <div class="branch-actions">
+            <a href="tel:0989410677" class="btn btn-primary btn-sm cta-call" data-branch="Branch_2" id="btnCallBranch2">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              GỌI CHI NHÁNH 2
+            </a>
+            <a href="https://www.google.com/maps/search/?api=1&query=460+Le+Van+Sy+phuong+Tan+Son+Hoa+TP+Ho+Chi+Minh" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" id="btnMapBranch2">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+              CHỈ ĐƯỜNG
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Giờ mở cửa & Phản ánh chất lượng -->
+      <div class="info-subrow">
+        <div class="info-card" id="cardOpeningHours">
+          <div class="info-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <div class="info-card-text">
+            <h4>GIỜ MỞ CỬA</h4>
+            <p>Tất cả các ngày trong tuần: <span style="color: var(--c-burgundy); font-weight: 800;">09:00 – 22:00</span></p>
+          </div>
+        </div>
+
+        <div class="info-card" id="cardQualityFeedback">
+          <div class="info-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          </div>
+          <div class="info-card-text">
+            <h4>PHẢN ÁNH CHẤT LƯỢNG</h4>
+            <p>
+              <a href="tel:0964019199" style="color: var(--c-burgundy); font-weight: 800;" class="cta-call" data-branch="Quality_Feedback">0964.019.199</a> (Ms. Bằng)
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION XV: KÊNH TRỰC TUYẾN (FACEBOOK, TIKTOK, EMAIL)
+       ======================================================================== -->
+  <section class="social-channels-section" id="kenh-truc-tuyen">
+    <div class="container">
+      <header class="section-header" style="margin-bottom: 1.5rem;">
+        <div class="section-tag">Kết nối với Ba Thi</div>
+        <h2 style="font-size: 1.5rem;">KÊNH TRỰC TUYẾN CHÍNH THỨC</h2>
+      </header>
+
+      <div class="channels-row">
+        <!-- Nút Facebook -->
+        <a href="https://www.facebook.com/thibang.banhxeo/" target="_blank" rel="noopener noreferrer" class="channel-btn channel-facebook cta-facebook" id="btnSocialFacebook">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          Facebook
+        </a>
+
+        <!-- Nút TikTok -->
+        <a href="https://www.tiktok.com/@baconnhaongthi/" target="_blank" rel="noopener noreferrer" class="channel-btn channel-tiktok cta-tiktok" id="btnSocialTikTok">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          TikTok
+        </a>
+
+        <!-- Nút Email -->
+        <a href="mailto:chiaki1409@gmail.com" class="channel-btn channel-email" id="btnSocialEmail">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          Email: chiaki1409@gmail.com
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION XVI: BÁO CHÍ & KOLS NÓI VỀ BA THI
+       ======================================================================== -->
+  <section class="media-section" id="bao-chi-kols">
+    <div class="container">
+      <header class="section-header">
+        <div class="section-tag">Đánh giá &amp; Truyền thông</div>
+        <h2>BÁO CHÍ &amp; KOLS NÓI VỀ BA THI</h2>
+        <p class="section-subtitle">
+          Những góc nhìn chân thật từ thực khách, các kênh ẩm thực và phóng sự văn hóa món ngon Bình Định.
+        </p>
+      </header>
+
+      <div class="media-grid">
+        <!-- 1. Báo điện tử -->
+        <article class="media-card" id="mediaCardBaoChi">
+          <div class="media-card-thumbnail">
+            <img src="images/media-bao-chi.svg" alt="Báo điện tử viết về Bánh Xèo Tôm Nhảy Ba Thi" loading="lazy" width="400" height="225" />
+            <span class="media-badge">Báo điện tử</span>
+          </div>
+          <div class="media-card-body">
+            <h3 class="media-card-title">Bánh Xèo Tôm Nhảy Ba Thi</h3>
+            <p class="media-card-desc">
+              Bài viết giới thiệu về hành trình gìn giữ phong vị Bình Định và kỹ thuật đổ bánh tươi giòn xốp từ bột gạo Hè Thu Tuy Phước xay khô.
+            </p>
+            <!-- [CHÈN LINK BÁO CHÍ] - Thay bằng link bài báo của bạn -->
+            <a href="#" target="_blank" rel="noopener noreferrer" class="media-card-link" id="linkMediaBaoChi">
+              Đọc bài báo
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- 2. TikTok Review -->
+        <article class="media-card" id="mediaCardTikTok">
+          <div class="media-card-thumbnail">
+            <img src="images/media-tiktok.svg" alt="Review Trải Nghiệm Ẩm Thực Ba Thi trên TikTok" loading="lazy" width="400" height="225" />
+            <span class="media-badge" style="background-color: #000; color: #FFF;">TikTok Review</span>
+          </div>
+          <div class="media-card-body">
+            <h3 class="media-card-title">Review Trải Nghiệm Ẩm Thực</h3>
+            <p class="media-card-desc">
+              Khám phá trải nghiệm cuốn bánh xèo tôm nhảy nóng hổi giòn rụm cùng 8 loại rau sống sạch và nước mắm chua ngọt đặc trưng.
+            </p>
+            <!-- [CHÈN LINK TIKTOK] - Đã gắn kênh chính thức của quán -->
+            <a href="https://www.tiktok.com/@baconnhaongthi/" target="_blank" rel="noopener noreferrer" class="media-card-link cta-tiktok" id="linkMediaTikTok">
+              Xem trên TikTok
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- 3. YouTube -->
+        <article class="media-card" id="mediaCardYouTube">
+          <div class="media-card-thumbnail">
+            <img src="images/media-youtube.svg" alt="Cảm nhận món ăn đặc sản Bình Định trên YouTube" loading="lazy" width="400" height="225" />
+            <span class="media-badge" style="background-color: #CC0000; color: #FFF;">YouTube Video</span>
+          </div>
+          <div class="media-card-body">
+            <h3 class="media-card-title">Cảm nhận món ăn đặc sản Bình Định</h3>
+            <p class="media-card-desc">
+              Video trải nghiệm thực tế tiếng tôm nhảy xèo xèo trên khuôn gang nóng và không gian ẩm thực thân thiện, chân chất xứ Nẫu.
+            </p>
+            <!-- [CHÈN LINK YOUTUBE] - Thay bằng link video YouTube của bạn -->
+            <a href="#" target="_blank" rel="noopener noreferrer" class="media-card-link" id="linkMediaYouTube">
+              Xem video YouTube
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTION XVII: FOOTER
+       ======================================================================== -->
+  <footer class="site-footer" id="siteFooter">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand & Slogan -->
+        <div class="footer-brand">
+          <!-- Logo Ba Thi -->
+          <h3 style="font-size: 1.35rem; color: var(--c-gold-light); margin-bottom: 0.25rem;">
+            BÁNH XÈO TÔM NHẢY BA THI
+          </h3>
+          <p class="footer-slogan">"Mang hương vị Bình Định đến gần hơn với thực khách."</p>
+          <p class="footer-desc">
+            Thương hiệu bánh xèo Bình Định thành lập từ năm 2014. Bột xay khô kết hợp nước cốt dừa, tôm Đầm Thị Nại, mực hấp ghe giữ trọn sự giòn xốp và tươi ngon nguyên bản.
+          </p>
+        </div>
+
+        <!-- Col 2: Navigation Links -->
+        <div class="footer-nav">
+          <h4 class="footer-col-title">Điều hướng</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#trang-chu" class="footer-nav-link">Trang chủ</a></li>
+            <li><a href="#cau-chuyen" class="footer-nav-link">Câu chuyện</a></li>
+            <li><a href="#thuc-don" class="footer-nav-link">Thực đơn</a></li>
+            <li><a href="#chi-nhanh" class="footer-nav-link">Chi nhánh</a></li>
+            <li><a href="#bao-chi-kols" class="footer-nav-link">Báo chí &amp; KOLs</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Contact Info -->
+        <div class="footer-contact">
+          <h4 class="footer-col-title">Thông tin liên hệ</h4>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <span>Hotline: <a href="tel:0984475767" style="color: #FFF; font-weight: 700;" class="cta-call">0984.47.57.67</a></span>
+            </li>
+            <li class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>CN1: 188 đường GS3, P. Đông Hòa, TP.HCM</span>
+            </li>
+            <li class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>CN2: 460 Lê Văn Sỹ, P. Tân Sơn Hòa, TP.HCM</span>
+            </li>
+            <li class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+              <a href="https://www.facebook.com/thibang.banhxeo/" target="_blank" rel="noopener noreferrer" style="color: var(--c-gold-light);" class="cta-facebook">Facebook: Bánh Xèo Ba Thi</a>
+            </li>
+            <li class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              <a href="https://www.tiktok.com/@baconnhaongthi/" target="_blank" rel="noopener noreferrer" style="color: var(--c-gold-light);" class="cta-tiktok">TikTok: @baconnhaongthi</a>
+            </li>
+            <li class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <a href="mailto:chiaki1409@gmail.com" style="color: var(--c-gold-light);">Email: chiaki1409@gmail.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; Bánh Xèo Tôm Nhảy Ba Thi. Đặc sản Bình Định. Bảo lưu mọi quyền.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       SECTION VII: THANH CTA CỐ ĐỊNH TRÊN MOBILE (STICKY BOTTOM BAR)
+       Cực kỳ quan trọng: Luôn ở dưới cùng khi cuộn trên điện thoại, không che nội dung.
+       ======================================================================== -->
+  <div class="mobile-sticky-cta" id="mobileStickyCtaBar" aria-label="Thanh liên hệ nhanh">
+    <!-- Nút 1: GỌI NGAY -->
+    <a href="tel:0984475767" class="sticky-cta-btn sticky-call cta-call" id="stickyBtnCall" title="Gọi ngay cho quán">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      <span>GỌI NGAY</span>
+    </a>
+
+    <!-- Nút 2: CHAT ZALO (Placeholder ZALO_LINK_HERE) -->
+    <a href="ZALO_LINK_HERE" class="sticky-cta-btn sticky-zalo cta-zalo" id="stickyBtnZalo" data-source="StickyBar" title="Nhắn tin Zalo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+      <span>CHAT ZALO</span>
+    </a>
+
+    <!-- Nút 3: FACEBOOK -->
+    <a href="https://www.facebook.com/thibang.banhxeo/" target="_blank" rel="noopener noreferrer" class="sticky-cta-btn sticky-facebook cta-facebook" id="stickyBtnFacebook" title="Trang Facebook Ba Thi">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      <span>FACEBOOK</span>
+    </a>
+  </div>
+
+  <!-- Main Vanilla JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

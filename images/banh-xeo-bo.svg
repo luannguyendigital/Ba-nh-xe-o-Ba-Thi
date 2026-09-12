@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#521919"/>
+      <stop offset="100%" stop-color="#291211"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bg)"/>
+  <rect x="16" y="16" width="calc(100% - 32px)" height="calc(100% - 32px)" fill="none" stroke="#FAF7F0" stroke-opacity="0.15" stroke-width="1.5" rx="12"/>
+  <circle cx="300" cy="240" r="130" fill="#E5A93B" opacity="0.9"/><circle cx="300" cy="240" r="115" fill="#D18C1D"/><path d="M200 240 Q300 130 400 240 Z" fill="#F4C458"/><circle cx="270" cy="210" r="18" fill="#E2583E"/><circle cx="330" cy="210" r="18" fill="#E2583E"/><path d="M260 255 Q290 270 330 250" stroke="#2E7D32" stroke-width="6" fill="none"/><circle cx="240" cy="235" r="5" fill="#2E7D32"/><circle cx="360" cy="230" r="5" fill="#2E7D32"/>
+  <rect x="40" y="440" width="520" height="120" rx="10" fill="#1E1614" fill-opacity="0.75"/>
+  <text x="300" y="485" fill="#FAF7F0" font-family="'Playfair Display', serif, sans-serif" font-size="24" font-weight="bold" text-anchor="middle">BÁNH XÈO BÒ</text>
+  <text x="300" y="520" fill="#E5A93B" font-family="sans-serif" font-size="14" text-anchor="middle">Thịt bò tươi mềm ướp gia truyền</text>
+  <text x="300" y="548" fill="#C8B89E" font-family="sans-serif" font-size="11" text-anchor="middle">[THAY ẢNH THẬT TẠI ĐÂY]</text>
+</svg>
